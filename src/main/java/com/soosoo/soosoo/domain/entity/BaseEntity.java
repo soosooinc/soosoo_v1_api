@@ -13,12 +13,12 @@ import java.sql.Date;
 @DynamicUpdate
 @MappedSuperclass
 public class BaseEntity {
-    @Column(columnDefinition = "DATETIME", nullable = false)
+    @Column
     private Date createdAt;
 
     private String createdBy;
 
-    @Column(columnDefinition = "TIMESTAMP", nullable = false)
+    @Column(columnDefinition = "TIMESTAMP")
     private Date modifiedAt;
 
     private String modifiedBy;
