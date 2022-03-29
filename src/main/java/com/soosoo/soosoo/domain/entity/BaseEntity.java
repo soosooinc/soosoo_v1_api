@@ -13,7 +13,7 @@ import java.sql.Date;
 @DynamicUpdate
 @MappedSuperclass
 public class BaseEntity {
-    @Column
+    @Column(columnDefinition = "datetime")
     private Date createdAt;
 
     private String createdBy;
