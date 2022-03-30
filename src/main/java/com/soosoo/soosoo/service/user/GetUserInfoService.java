@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class GetUserInfoService {
     private final UserRepository userRepository;
+
     @Transactional(readOnly = true)
     public User getUserInfo(int userId) {
         return userRepository.findByUserId(userId);
