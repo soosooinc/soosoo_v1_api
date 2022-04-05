@@ -1,7 +1,9 @@
 package com.soosoo.soosoo.controller.image;
 
 import com.soosoo.soosoo.common.response.Response;
+import com.soosoo.soosoo.domain.entity.Image;
 import com.soosoo.soosoo.domain.entity.User;
+import com.soosoo.soosoo.service.image.facade.ImageFacade;
 import com.soosoo.soosoo.service.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,18 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("image")
 @RequiredArgsConstructor
 public class ImageController {
-    private final UserFacade userFacade;
+    private final ImageFacade imageFacade;
 
-    @GetMapping("info")
-    public ResponseEntity<Response<User>> getUserInfo(
-            @RequestParam(value = "userId") int userId
-    ) {
-        return ResponseEntity.ok(
-                Response.of(
-                        userFacade.getUserInfo(userId),
-                        "불러오기 완료"
-                )
-        );
-    }
 }
 
