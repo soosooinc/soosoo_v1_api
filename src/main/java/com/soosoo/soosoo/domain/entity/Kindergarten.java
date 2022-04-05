@@ -10,23 +10,29 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_image")
+@Table(name = "tb_kindergarten")
 @DynamicInsert
 @DynamicUpdate
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Image extends BaseEntity {
-
+public class Kindergarten extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Integer imageId;
+    private Integer kindergartenId;
+
+    @Column(name = "user_id_fk", nullable = false, columnDefinition = "TEXT")
+    private Integer userId;
 
     @Column(nullable = false, columnDefinition = "TEXT")
-    private String imageUrl;
+    private String name;
 
-    @Column(nullable = false, columnDefinition = "smallint")
-    private Short type;
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String address;
+
+    @Column
+    private Short phone;
+
 }
