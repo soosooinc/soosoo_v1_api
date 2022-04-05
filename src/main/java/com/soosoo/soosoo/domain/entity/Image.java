@@ -18,6 +18,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Image extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -27,5 +28,5 @@ public class Image extends BaseEntity {
     private String imageUrl;
 
     @Column(nullable = false, columnDefinition = "smallint")
-    private Short id;
+    private Short type;
 }
