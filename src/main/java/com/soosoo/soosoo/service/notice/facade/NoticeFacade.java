@@ -1,4 +1,4 @@
-package com.soosoo.soosoo.service.user.facade;
+package com.soosoo.soosoo.service.notice.facade;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
