@@ -32,7 +32,7 @@ public class Kindergarten extends BaseEntity{
     @Column(nullable = false, columnDefinition = "TEXT")
     private String address;
 
-    @Column
-    private Short phone;
+    @Column(columnDefinition = "TEXT")
+    private String phone;
 
 }
