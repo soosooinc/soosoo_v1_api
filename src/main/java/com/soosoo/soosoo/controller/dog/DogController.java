@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("notice")
+@RequestMapping("dog")
 @RequiredArgsConstructor
 public class DogController {
-    private final DogFacade noticeFacade;
+    private final DogFacade dogFacade;
 
 }
