@@ -14,7 +14,7 @@ public class KindergartenFacade {
     private final GetTeacherInfoService getTeacherInfoService;
 
     @Transactional(readOnly = true)
-    public List<KindergartenResponse> getTeacherInfo(int kindergartenId){
+    public List<KindergartenResponse.TeacherInfoResponse> getTeacherInfo(int kindergartenId){
         return getTeacherInfoService.getTeacherInfo(kindergartenId);
     }
 }

@@ -17,13 +17,14 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<KindergartenResponse> getTeacherInfo(int kindergartenId) {
+    public List<KindergartenResponse.TeacherInfoResponse> getTeacherInfo(int kindergartenId) {
         return jpaQueryFactory
-                .select(Projections.constructor(KindergartenResponse.class, user.userId, user.name, image.imageUrl))
+                .select(Projections.constructor(KindergartenResponse.TeacherInfoResponse.class, user.userId, user.name, image.imageUrl))
                 .from(user)
                 .join(image)
                 .on(user.imageId.eq(image.imageId)).fetchJoin()
-                .where(user.kindergartenId.eq(kindergartenId))
+                .where(user.kindergartenId.eq(kindergartenId)
+                        .and(user.type.eq((short)2)))
                 .fetch();
     }
 }

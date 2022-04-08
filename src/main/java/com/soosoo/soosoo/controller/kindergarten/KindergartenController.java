@@ -19,7 +19,7 @@ public class KindergartenController {
     private final KindergartenFacade kindergartenFacade;
 
     @GetMapping("getTeacherInfo")
-    public ResponseEntity<Response<List<KindergartenResponse>>> getTeacherInfo(
+    public ResponseEntity<Response<List<KindergartenResponse.TeacherInfoResponse>>> getTeacherInfo(
             @RequestParam("kindergartenId") int kindergartenId
     ){
         return ResponseEntity.ok(
