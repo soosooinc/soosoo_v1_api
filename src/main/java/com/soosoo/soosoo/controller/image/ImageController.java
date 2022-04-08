@@ -12,12 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("image")
 @RequiredArgsConstructor
 public class ImageController {
     private final ImageFacade imageFacade;
 
+    @GetMapping("getImage")
+    public ResponseEntity<Response<String>> getImage(
+            @RequestParam("imageId") int imageId
+    ) {
+        return ResponseEntity.ok(
+                Response.of(
+                        imageFacade.getImage(imageId),
+                        "불러오기 완료"
+                )
+        );
+    }
 }
 
