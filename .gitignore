@@ -39,3 +39,4 @@ out/
 ## prod props
 application-prod.yml
 logs/
+.DS_Store
