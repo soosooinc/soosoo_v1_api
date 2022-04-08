@@ -23,9 +23,6 @@ public class Kindergarten extends BaseEntity{
     @Column(unique = true, nullable = false)
     private Integer kindergartenId;
 
-    @Column(name = "user_id_fk", nullable = false, columnDefinition = "TEXT")
-    private Integer userId;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String name;
 
