@@ -1,4 +1,4 @@
-package com.soosoo.soosoo.service.dog.facade;
+package com.soosoo.soosoo.service.dog;
 
 import com.soosoo.soosoo.domain.repository.dog.DogRepository;
 import lombok.RequiredArgsConstructor;
