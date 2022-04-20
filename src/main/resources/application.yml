@@ -27,7 +27,7 @@ spring:
         format_sql: true
 
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/soosoodb?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://13.209.123.247:3306/soosoodb?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
     username: soosoo
     password: soosoo7942!
-    driver-class-name: co.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
