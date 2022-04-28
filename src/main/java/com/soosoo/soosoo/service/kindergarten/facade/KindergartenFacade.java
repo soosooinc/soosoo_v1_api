@@ -1,7 +1,6 @@
 package com.soosoo.soosoo.service.kindergarten.facade;
 
 import com.soosoo.soosoo.domain.entity.Kindergarten;
-import com.soosoo.soosoo.service.image.GetImageService;
 import com.soosoo.soosoo.service.kindergarten.GetKindergartenInfoService;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
 import com.soosoo.soosoo.service.kindergarten.GetTeacherInfoService;

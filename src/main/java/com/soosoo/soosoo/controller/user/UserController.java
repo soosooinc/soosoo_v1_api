@@ -1,6 +1,7 @@
 package com.soosoo.soosoo.controller.user;
 
 import com.soosoo.soosoo.common.response.Response;
+import com.soosoo.soosoo.controller.user.dto.UserResponse;
 import com.soosoo.soosoo.domain.entity.User;
 import com.soosoo.soosoo.service.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class UserController {
     private final UserFacade userFacade;
 
     @GetMapping("info")
-    public ResponseEntity<Response<User>> getUserInfo(
+    public ResponseEntity<Response<UserResponse.UserInfoResponse>> getUserInfo(
             @RequestParam(value = "userId") int userId
     ) {
         return ResponseEntity.ok(

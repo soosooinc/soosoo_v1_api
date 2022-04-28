@@ -1,6 +1,5 @@
 package com.soosoo.soosoo.domain.repository.kindergarten;
 
-import com.soosoo.soosoo.domain.repository.user.UserRepositoryCustom;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
