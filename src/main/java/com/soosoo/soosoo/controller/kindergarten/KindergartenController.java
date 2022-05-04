@@ -1,6 +1,7 @@
 package com.soosoo.soosoo.controller.kindergarten;
 
 import com.soosoo.soosoo.common.response.Response;
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.domain.entity.Kindergarten;
 import com.soosoo.soosoo.domain.entity.User;
 import com.soosoo.soosoo.service.user.facade.UserFacade;
@@ -22,7 +23,7 @@ public class KindergartenController {
     private final KindergartenFacade kindergartenFacade;
 
     @GetMapping("info")
-    public ResponseEntity<Response<Kindergarten>> getKindergartenInfo(
+    public ResponseEntity<Response<KindergartenJoinImageForResponse>> getKindergartenInfo(
             @RequestParam(value = "kindergartenId") int kindergartenId
     ) {
         return ResponseEntity.ok(
