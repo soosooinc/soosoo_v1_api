@@ -2,6 +2,7 @@ package com.soosoo.soosoo.domain.repository.kindergarten;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.soosoo.soosoo.common.enums.UserTypeEnum;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,7 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
                 .join(image)
                 .on(user.imageId.eq(image.imageId)).fetchJoin()
                 .where(user.kindergartenId.eq(kindergartenId)
-                        .and(user.type.eq((short)2)))
+                        .and(user.type.eq((short) UserTypeEnum.TEACHER.getUserType())))
                 .fetch();
     }
 }
