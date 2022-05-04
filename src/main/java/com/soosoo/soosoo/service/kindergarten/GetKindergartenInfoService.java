@@ -1,5 +1,7 @@
 package com.soosoo.soosoo.service.kindergarten;
 
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.domain.entity.Kindergarten;
 import com.soosoo.soosoo.domain.entity.User;
 import com.soosoo.soosoo.domain.repository.kindergarten.KindergartenRepository;
@@ -14,7 +16,7 @@ public class GetKindergartenInfoService {
     private final KindergartenRepository kindergartenRepository;
 
     @Transactional(readOnly = true)
-    public Kindergarten getKindergartenInfo(int kindergartenId) {
-        return kindergartenRepository.findByKindergartenId(kindergartenId);
+    public KindergartenJoinImageForResponse getKindergartenInfo(int kindergartenId) {
+        return kindergartenRepository.getKindergartenInfo(kindergartenId);
     }
 }

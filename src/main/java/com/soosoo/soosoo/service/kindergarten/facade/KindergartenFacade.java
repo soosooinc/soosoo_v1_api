@@ -1,5 +1,6 @@
 package com.soosoo.soosoo.service.kindergarten.facade;
 
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.domain.entity.Kindergarten;
 import com.soosoo.soosoo.service.kindergarten.GetKindergartenInfoService;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
@@ -17,7 +18,7 @@ public class KindergartenFacade {
     private final GetTeacherInfoService getTeacherInfoService;
 
     @Transactional(readOnly = true)
-    public Kindergarten getKindergartenInfo(int kindergartenId) {
+    public KindergartenJoinImageForResponse getKindergartenInfo(int kindergartenId) {
         return getKindergartenInfoService.getKindergartenInfo(kindergartenId);
     }
   
