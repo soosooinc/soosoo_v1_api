@@ -22,9 +22,9 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
                         user.userId, kindergarten.name, image.imageUrl,
                         user.id, user.name, user.type, user.phone, user.email
                         ))
-                .from(image)
-                .innerJoin(user).on(image.imageId.eq(user.imageId))
-                .innerJoin(kindergarten).on(kindergarten.kindergartenId.eq(user.kindergartenId))
+                .from(user)
+                .join(image).on(user.imageId.eq(image.imageId)).fetchJoin()
+                .join(kindergarten).on(user.kindergartenId.eq(kindergarten.kindergartenId)).fetchJoin()
                 .where(user.userId.eq(userId))
                 .fetchOne();
     }
