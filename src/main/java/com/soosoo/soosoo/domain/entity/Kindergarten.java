@@ -32,4 +32,6 @@ public class Kindergarten extends BaseEntity{
     @Column(columnDefinition = "TEXT")
     private String phone;
 
+    @Column(name = "image_id_fk")
+    private Integer imageId;
 }
