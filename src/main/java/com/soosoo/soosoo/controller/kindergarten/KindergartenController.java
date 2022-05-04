@@ -33,7 +33,7 @@ public class KindergartenController {
         );
     }
   
-    @GetMapping("getTeacherInfo")
+    @GetMapping("teacherInfo")
     public ResponseEntity<Response<List<KindergartenResponse.TeacherInfoResponse>>> getTeacherInfo(
             @RequestParam("kindergartenId") int kindergartenId
     ){
