@@ -40,4 +40,14 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
                 .on(kindergarten.imageId.eq(image.imageId)).fetchJoin()
                 .fetchOne();
     }
+
+    @Override
+    public long addTeacher(int kindergartenId, int userId){
+        return jpaQueryFactory
+                .update(user)
+                .where(user.userId.eq(userId))
+                .set(user.kindergartenId, kindergartenId)
+                .execute();
+    }
+
 }

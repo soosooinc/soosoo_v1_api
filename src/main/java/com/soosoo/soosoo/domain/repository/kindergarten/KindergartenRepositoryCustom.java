@@ -8,4 +8,5 @@ import java.util.List;
 public interface KindergartenRepositoryCustom {
     List<KindergartenResponse.TeacherInfoResponse> getTeacherInfo(int kindergartenId);
     KindergartenJoinImageForResponse getKindergartenInfo(int kindergartenId);
+    long addTeacher(int kindergartenId, int userId);
 }
