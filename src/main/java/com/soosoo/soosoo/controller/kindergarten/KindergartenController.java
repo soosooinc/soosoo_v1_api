@@ -50,7 +50,7 @@ public class KindergartenController {
 
         return ResponseEntity.ok(
                 Response.of(
-                        "선생님 등록 완료"
+                        kindergartenFacade.addTeacher(kindergartenId, userId)
                 )
         );
     }
