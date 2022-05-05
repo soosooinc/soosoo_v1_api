@@ -45,8 +45,8 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
     public long addTeacher(int kindergartenId, int userId){
         return jpaQueryFactory
                 .update(user)
-                .where(user.userId.eq(userId))
                 .set(user.kindergartenId, kindergartenId)
+                .where(user.userId.eq(userId))
                 .execute();
     }
 
