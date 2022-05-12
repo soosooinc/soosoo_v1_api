@@ -1,6 +1,7 @@
 package com.soosoo.soosoo.controller.notice;
 
 import com.soosoo.soosoo.common.response.Response;
+import com.soosoo.soosoo.controller.notice.dto.NoticeDto;
 import com.soosoo.soosoo.domain.entity.Notice;
 import com.soosoo.soosoo.service.notice.facade.NoticeFacade;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,17 @@ public class NoticeController {
         return ResponseEntity.ok(
                 Response.of(
                         noticeFacade.getNoticeList(type),
+                        "불러오기 완료"
+                )
+        );
+    }
+    @PostMapping("addNotice")
+    public ResponseEntity<Response<Notice>> addNotice(
+            @RequestBody NoticeDto noticeDto
+            ){
+        return ResponseEntity.ok(
+                Response.of(
+                        noticeFacade.addNotice(noticeDto),
                         "불러오기 완료"
                 )
         );
