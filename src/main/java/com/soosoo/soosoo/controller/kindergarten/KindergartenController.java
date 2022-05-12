@@ -3,6 +3,7 @@ package com.soosoo.soosoo.controller.kindergarten;
 import com.soosoo.soosoo.common.response.Response;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.controller.user.dto.UserResponse.UserInfoResponse;
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.TeacherInfoResponse;
 import com.soosoo.soosoo.service.kindergarten.facade.KindergartenFacade;
 import com.soosoo.soosoo.service.user.facade.UserFacade;
 import lombok.RequiredArgsConstructor;
@@ -29,15 +30,15 @@ public class KindergartenController {
     ) {
         return ResponseEntity.ok(
                 Response.of(
-                        kindergartenFacade.getKindergartenInfo(kindergartenId),"불러오기 완료"
+                        kindergartenFacade.getKindergartenInfo(kindergartenId), "불러오기 완료"
                 )
         );
     }
-  
+
     @GetMapping("teacherInfo")
     public ResponseEntity<Response<List<TeacherInfoResponse>>> getTeacherInfo(
             @RequestParam("kindergartenId") int kindergartenId
-    ){
+    ) {
         return ResponseEntity.ok(
                 Response.of(
                         kindergartenFacade.getTeacherInfo(kindergartenId),
@@ -58,4 +59,16 @@ public class KindergartenController {
         );
     }
 
+    @GetMapping("addTeacher")
+    public ResponseEntity<Response<String>> addTeacher(
+            @RequestParam("kindergartenId") int kindergartenId,
+            @RequestParam("userId") int userId
+    ) {
+
+        return ResponseEntity.ok(
+                Response.of(
+                        kindergartenFacade.addTeacher(kindergartenId, userId)
+                )
+        );
+    }
 }
