@@ -1,6 +1,5 @@
 package com.soosoo.soosoo.service.user.facade;
 
-import com.soosoo.soosoo.controller.user.dto.UserResponse;
 import com.soosoo.soosoo.controller.user.dto.UserResponse.UserInfoResponse;
 import com.soosoo.soosoo.service.user.GetUserInfoByNameService;
 import com.soosoo.soosoo.service.user.GetUserInfoService;
