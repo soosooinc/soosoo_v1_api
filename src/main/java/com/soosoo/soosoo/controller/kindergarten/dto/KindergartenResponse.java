@@ -28,7 +28,6 @@ public class KindergartenResponse {
         private String phone;
         private Integer imageId;
         private String imageUrl;
-        private Short type;
     }
 
     @Getter
