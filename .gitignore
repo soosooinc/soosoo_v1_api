@@ -39,3 +39,5 @@ out/
 ## prod props
 application-prod.yml
 logs/
+
+src/main/generated/

@@ -38,6 +38,7 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
                 .from(kindergarten)
                 .join(image)
                 .on(kindergarten.imageId.eq(image.imageId)).fetchJoin()
+                .where(kindergarten.kindergartenId.eq(kindergartenId))
                 .fetchOne();
     }
 
