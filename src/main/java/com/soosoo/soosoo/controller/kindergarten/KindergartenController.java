@@ -71,4 +71,16 @@ public class KindergartenController {
                 )
         );
     }
+
+    @GetMapping("deleteTeacher")
+    public ResponseEntity<Response<String>> deleteTeacher(
+            @RequestParam("kindergartenId") int kindergartenId,
+            @RequestParam("userId") int userId
+    ){
+        return ResponseEntity.ok(
+                Response.of(
+                        kindergartenFacade.deleteTeacher(userId)
+                )
+        );
+    }
 }
