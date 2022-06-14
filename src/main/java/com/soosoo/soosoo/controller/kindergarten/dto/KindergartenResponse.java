@@ -7,6 +7,7 @@ import com.soosoo.soosoo.domain.entity.Kindergarten;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 public class KindergartenResponse {
     @Getter
@@ -27,12 +28,12 @@ public class KindergartenResponse {
         private String address;
         private String phone;
         private Integer imageId;
-        private String imageUrl;
     }
 
     @Getter
     @Builder
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class KindergartenJoinImageForResponse {
         private KindergartenForResponse kindergarten;
         private ImageForResponse image;
