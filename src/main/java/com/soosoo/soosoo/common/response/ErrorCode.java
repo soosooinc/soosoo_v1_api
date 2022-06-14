@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum ErrorCode {
-    // Store Error
-    STORE_NOT_FOUND(404, "STORE-404-1", "해당 Id의 스토어를 찾을 수 없습니다"),
+    // Kindergarten Error
+    KINDERGARTEN_NOT_FOUND(404, "STORE-404-1", "해당 Id의 유치원을 찾을 수 없습니다"),
 
     // User Error
     USER_NOT_FOUND(401, "USER-401-1", "해당 Id를 가진 유저를 찾을 수 없습니다"),
