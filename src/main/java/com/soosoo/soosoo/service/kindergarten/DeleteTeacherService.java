@@ -2,6 +2,7 @@ package com.soosoo.soosoo.service.kindergarten;
 
 import com.soosoo.soosoo.common.exception.BaseException;
 import com.soosoo.soosoo.common.response.ErrorCode;
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenDto;
 import com.soosoo.soosoo.domain.repository.kindergarten.KindergartenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,10 @@ public class DeleteTeacherService {
     @Transactional
     public String deleteTeacher(int userId){
         try {
-            long result = kindergartenRepository.addTeacher(0, userId);
+            KindergartenDto kindergartenDto = new KindergartenDto();
+            kindergartenDto.setKindergartenId(0);
+            kindergartenDto.setUserId(userId);
+            long result = kindergartenRepository.addTeacher(kindergartenDto);
             if (result != 0) {
                 return "선생님 삭제 완료";
             } else {

@@ -3,8 +3,10 @@ package com.soosoo.soosoo.domain.repository.kindergarten;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.soosoo.soosoo.common.enums.UserTypeEnum;
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenDto;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
+import com.soosoo.soosoo.domain.entity.Kindergarten;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -43,11 +45,11 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
     }
 
     @Override
-    public long addTeacher(int kindergartenId, int userId){
+    public long addTeacher(KindergartenDto kindergartenDto){
         return jpaQueryFactory
                 .update(user)
-                .set(user.kindergartenId, kindergartenId)
-                .where(user.userId.eq(userId).and(user.type.eq((short)UserTypeEnum.TEACHER.getUserType())))
+                .set(user.kindergartenId, kindergartenDto.getKindergartenId())
+                .where(user.userId.eq(kindergartenDto.getUserId()).and(user.type.eq((short)UserTypeEnum.TEACHER.getUserType())))
                 .execute();
     }
 

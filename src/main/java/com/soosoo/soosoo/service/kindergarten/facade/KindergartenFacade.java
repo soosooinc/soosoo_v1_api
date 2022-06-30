@@ -1,5 +1,6 @@
 package com.soosoo.soosoo.service.kindergarten.facade;
 
+import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenDto;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.TeacherInfoResponse;
 import com.soosoo.soosoo.controller.user.dto.UserResponse.UserInfoResponse;
@@ -34,8 +35,8 @@ public class KindergartenFacade {
     }
 
     @Transactional
-    public String addTeacher(int kindergartenId, int userId) {
-        return addTeacherService.addTeacher(kindergartenId, userId);
+    public String addTeacher(KindergartenDto kindergartenDto) {
+        return addTeacherService.addTeacher(kindergartenDto);
     }
 
     public String deleteTeacher(int userId) {
