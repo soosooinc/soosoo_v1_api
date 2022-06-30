@@ -38,4 +38,7 @@ public class Notice extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String subText;
+
+    @Column(name = "kindergarten_id_fk")
+    private Integer kindergartenId;
 }
