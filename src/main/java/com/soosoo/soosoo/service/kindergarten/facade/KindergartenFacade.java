@@ -4,6 +4,7 @@ import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.Kinder
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.TeacherInfoResponse;
 import com.soosoo.soosoo.controller.user.dto.UserResponse.UserInfoResponse;
 import com.soosoo.soosoo.service.kindergarten.AddTeacherService;
+import com.soosoo.soosoo.service.kindergarten.DeleteTeacherService;
 import com.soosoo.soosoo.service.kindergarten.GetKindergartenInfoService;
 import com.soosoo.soosoo.service.kindergarten.GetTeacherInfoService;
 import com.soosoo.soosoo.service.user.GetUserInfoByNameService;
@@ -20,6 +21,7 @@ public class KindergartenFacade {
     private final GetTeacherInfoService getTeacherInfoService;
     private final GetUserInfoByNameService getUserInfoByNameService;
     private final AddTeacherService addTeacherService;
+    private final DeleteTeacherService deleteTeacherService;
 
     @Transactional(readOnly = true)
     public KindergartenJoinImageForResponse getKindergartenInfo(int kindergartenId) {
@@ -36,4 +38,7 @@ public class KindergartenFacade {
         return addTeacherService.addTeacher(kindergartenId, userId);
     }
 
+    public String deleteTeacher(int userId) {
+        return deleteTeacherService.deleteTeacher(userId);
+    }
 }
