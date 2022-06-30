@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum NoticeTypeEnum {
-    ANNOUNCE(0),
-    NOTICE(1),
-    POST(2),
-    COMMENT(3);
+    ANNOUNCE((short)0),
+    NOTICE((short)1),
+    POST((short)2),
+    COMMENT((short)3);
 
-    private final int noticeType;
+    private final short noticeType;
 }

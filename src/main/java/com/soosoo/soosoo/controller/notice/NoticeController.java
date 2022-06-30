@@ -5,6 +5,8 @@ import com.soosoo.soosoo.controller.notice.dto.NoticeDto;
 import com.soosoo.soosoo.domain.entity.Notice;
 import com.soosoo.soosoo.service.notice.facade.NoticeFacade;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +30,20 @@ public class NoticeController {
         );
     }
 
+    @GetMapping("getNotice")
+    public ResponseEntity<Response<List<Notice>>> getNotice(
+            @RequestParam(value = "status") String status,
+            @RequestParam(value = "kindergartenId") Integer kindergartenId,
+            @PageableDefault(size = 10, page = 0)Pageable pageable
+    ) {
+        return ResponseEntity.ok(
+                Response.of(
+                        noticeFacade.getNotice(status, kindergartenId, pageable),
+                        "불러오기 완료"
+                )
+        );
+    }
+
     @GetMapping("getNoticeList/{type}")
     public ResponseEntity<Response<List<Notice>>> getNoticeList(
             @PathVariable("type") short type
@@ -39,6 +55,7 @@ public class NoticeController {
                 )
         );
     }
+
     @PostMapping("addNotice")
     public ResponseEntity<Response<Notice>> addNotice(
             @RequestBody NoticeDto noticeDto
