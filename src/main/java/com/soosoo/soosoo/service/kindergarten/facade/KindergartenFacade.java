@@ -3,10 +3,7 @@ package com.soosoo.soosoo.service.kindergarten.facade;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.TeacherInfoResponse;
 import com.soosoo.soosoo.controller.user.dto.UserResponse.UserInfoResponse;
-import com.soosoo.soosoo.service.kindergarten.AddTeacherService;
-import com.soosoo.soosoo.service.kindergarten.DeleteTeacherService;
-import com.soosoo.soosoo.service.kindergarten.GetKindergartenInfoService;
-import com.soosoo.soosoo.service.kindergarten.GetTeacherInfoService;
+import com.soosoo.soosoo.service.kindergarten.*;
 import com.soosoo.soosoo.service.user.GetUserInfoByNameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,10 +19,16 @@ public class KindergartenFacade {
     private final GetUserInfoByNameService getUserInfoByNameService;
     private final AddTeacherService addTeacherService;
     private final DeleteTeacherService deleteTeacherService;
+    private final UpdateKindergartenInfoService updateKindergartenInfoService;
 
     @Transactional(readOnly = true)
     public KindergartenJoinImageForResponse getKindergartenInfo(int kindergartenId) {
         return getKindergartenInfoService.getKindergartenInfo(kindergartenId);
+    }
+
+    @Transactional
+    public String updateKindergartenInfo(KindergartenJoinImageForResponse kindergartenJoinImage){
+        return updateKindergartenInfoService.updateKindergartenInfo(kindergartenJoinImage);
     }
   
     @Transactional(readOnly = true)
