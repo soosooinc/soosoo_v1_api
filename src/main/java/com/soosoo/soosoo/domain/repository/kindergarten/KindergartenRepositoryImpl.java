@@ -3,8 +3,10 @@ package com.soosoo.soosoo.domain.repository.kindergarten;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.soosoo.soosoo.common.enums.UserTypeEnum;
+import com.soosoo.soosoo.controller.image.dto.ImageResponse;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse;
 import com.soosoo.soosoo.controller.kindergarten.dto.KindergartenResponse.KindergartenJoinImageForResponse;
+import com.soosoo.soosoo.domain.entity.Image;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -49,6 +51,27 @@ public class KindergartenRepositoryImpl implements KindergartenRepositoryCustom 
                 .set(user.kindergartenId, kindergartenId)
                 .where(user.userId.eq(userId).and(user.type.eq((short)UserTypeEnum.TEACHER.getUserType())))
                 .execute();
+    }
+
+    @Override
+    public long updateKindergartenInfo(KindergartenJoinImageForResponse kindergartenJoinImage){
+        long kindergartenResult = jpaQueryFactory
+                .update(kindergarten)
+                .set(kindergarten.name, kindergartenJoinImage.getKindergarten().getName())
+                .set(kindergarten.address, kindergartenJoinImage.getKindergarten().getAddress())
+                .set(kindergarten.phone, kindergartenJoinImage.getKindergarten().getPhone())
+                .set(kindergarten.imageId, kindergartenJoinImage.getKindergarten().getImageId())
+                .where(kindergarten.kindergartenId.eq(kindergartenJoinImage.getKindergarten().getKindergartenId()))
+                .execute();
+
+        long imageResult = jpaQueryFactory
+                .update(image)
+                .set(image.imageUrl, kindergartenJoinImage.getImage().getImageUrl())
+                .set(image.type, kindergartenJoinImage.getImage().getType())
+                .where(image.imageId.eq(kindergartenJoinImage.getImage().getImageId()))
+                .execute();
+
+        return kindergartenResult & imageResult;
     }
 
 }
